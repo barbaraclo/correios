@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DriverManager {
+public class GerenciadorDriver {
 
     private static WebDriver driver;
     private static WebDriverWait wait;
