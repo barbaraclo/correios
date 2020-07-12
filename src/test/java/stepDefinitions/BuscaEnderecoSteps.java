@@ -7,7 +7,7 @@ import manager.GerenciadorDriver;
 import org.openqa.selenium.WebDriver;
 import pages.PaginaPrincipal;
 
-public class BuscaCepSteps {
+public class BuscaEnderecoSteps {
 
     private WebDriver driver = GerenciadorDriver.getDriver();
     private PaginaPrincipal paginaPrincipal;
@@ -39,18 +39,23 @@ public class BuscaCepSteps {
 
     }
 
-    @Entao("o sistema exibe os dados do endereço corretamente")
-    public void validaEndereco() {
+    @Entao("o sistema exibe os dados do endereço do cep {string} corretamente")
+    public void validaEndereco(String cep) {
 
     }
 
-    @Entao("o sistema exibe uma tabela com todos os endereços que contém os digitos informados")
-    public void validaTabela() {
+    @Entao("o sistema exibe uma tabela com todos os endereços que o CEP contém {string}")
+    public void validaTabela(String cep) {
 
     }
 
     @Quando("o usuário procura o logradouro {string}")
     public void buscaLogradouro(String logradouro) {
+
+    }
+
+    @Entao("o sistema exibe os dados do endereço do logradouro {string}")
+    public void validaLogradouro(String logradouro) {
 
     }
 
