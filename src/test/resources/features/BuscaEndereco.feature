@@ -5,7 +5,7 @@
     Como um usuário dos correios
     Quero realizar uma busca de endereço pelo cep ou logradouro
     Para que possa encontrar as informações de CEP ou logradouro
-    @teste
+    @validaEndereco
     Cenario: Realizar uma busca utilizando um CEP válido
       Dado que o usuário está na página principal
       E deseja realizar uma busca de endereço
@@ -14,7 +14,7 @@
       E visualiza a mensagem "DADOS ENCONTRADOS COM SUCESSO."
       E o sistema exibe os dados do endereço do cep "50030-230" corretamente
 
-
+    @teste
     Cenario: Realizar uma busca utilizando os 6 primeiros digitos do CEP
       Dado que o usuário está na página principal
       E deseja realizar uma busca de endereço
