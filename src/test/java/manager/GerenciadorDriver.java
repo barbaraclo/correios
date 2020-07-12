@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class GerenciadorDriver {
 
     private static WebDriver driver;
-    private static WebDriverWait wait;
+    private static WebDriverWait espera;
 
     public static WebDriver getDriver() {
         if (driver == null) {
@@ -18,23 +18,22 @@ public class GerenciadorDriver {
             Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
             driver = new ChromeDriver();
             // driver.manage().window().maximize();
-            // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         }
         return driver;
     }
 
-    public static void endSession() {
+    public static void finalizaSessao() {
         if (driver != null) {
             driver.quit();
             driver = null;
-            wait = null;
+            espera = null;
         }
     }
 
-    public static WebDriverWait getWait() {
-        if (wait == null) {
-            wait = new WebDriverWait(getDriver(), 20);
+    public static WebDriverWait getEspera() {
+        if (espera == null) {
+            espera = new WebDriverWait(getDriver(), 20);
         }
-        return wait;
+        return espera;
     }
 }
