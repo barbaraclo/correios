@@ -8,26 +8,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.sql.DriverManager;
 
-public class PaginaIdioma {
+public class PaginaIdioma extends PaginaPrincipal{
 
-    private WebDriver driver;
-    private WebDriverWait espera;
-    private PaginaPrincipal paginaPrincipal;
     private By selecionar_idioma_seletor = By.cssSelector(".ic-marcador-out");
     private By seleciona_portugues_seletor = By.className("language-pt-br");
 
 
     public PaginaIdioma(WebDriver driver){
-        espera = GerenciadorDriver.getEspera();
-        this.driver = driver;
-        paginaPrincipal = new PaginaPrincipal(this.driver);
-        paginaPrincipal.acessarPagina();
+        super(driver);
     }
 
     public void setIdioma (){
-        String idioma = paginaPrincipal.checarIdioma();
+        String idioma = checarIdioma();
         boolean portugues = idioma.equals("Português");
-        if (portugues == false){
+        if (!portugues){
             mudarPortugues();
         }
     }

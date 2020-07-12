@@ -14,9 +14,8 @@ public class PaginaPrincipal {
      Page representation
      */
 
-    private WebDriver driver;
-    private WebDriverWait espera;
-    private String paginaUrl = "https://www.correios.com.br";
+    protected WebDriver driver;
+    protected WebDriverWait espera;
     private By idioma_seletor = By.cssSelector(".bt-idioma span");
     private By busca_endereco_seletor = By.cssSelector(".mais-acessados form:nth-child(2)");
 
@@ -31,9 +30,10 @@ public class PaginaPrincipal {
     }
 
     public PaginaPrincipal acessarPagina() {
-        driver.get(paginaUrl);
+        driver.get(URL.MAIN_PAGE);
         return this;
     }
+
 
     public String checarIdioma(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(idioma_seletor));
@@ -42,11 +42,12 @@ public class PaginaPrincipal {
      return idioma;
     }
 
+
     public WebElement getEndereco(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(busca_endereco_seletor));
-        WebElement endereco_elemento = driver.findElement(busca_endereco_seletor);
+        WebElement endereco = driver.findElement(busca_endereco_seletor);
 
-     return endereco_elemento;
+     return endereco;
     }
 
 }
