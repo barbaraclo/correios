@@ -7,7 +7,7 @@ import manager.GerenciadorDriver;
 import org.openqa.selenium.WebDriver;
 import pages.PaginaPrincipal;
 
-public class BuscaCepSteps {
+public class BuscaEnderecoSteps {
 
     private WebDriver driver = GerenciadorDriver.getDriver();
     private PaginaPrincipal paginaPrincipal;

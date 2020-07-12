@@ -5,7 +5,7 @@
     Como um usuário dos correios
     Quero realizar uma busca de endereço pelo cep ou logradouro
     Para que possa encontrar as informações de CEP ou logradouro
-
+    @teste
     Cenario: Realizar uma busca utilizando um CEP válido
       Dado que o usuário está na página principal
       E deseja realizar uma busca de endereço
