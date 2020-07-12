@@ -5,6 +5,7 @@ import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import manager.GerenciadorDriver;
 import org.openqa.selenium.WebDriver;
+import pages.BuscaEnderecoPagina;
 import pages.PaginaPrincipal;
 
 public class BuscaEnderecoSteps {
@@ -16,6 +17,7 @@ public class BuscaEnderecoSteps {
     public void paginaPrincipal() {
         paginaPrincipal = new PaginaPrincipal(driver);
         paginaPrincipal.acessarPagina();
+        //precisa modificar por conta do hoocks
 
     }
 
@@ -26,7 +28,9 @@ public class BuscaEnderecoSteps {
 
     @Quando("o usuário procura o cep {string}")
     public void buscaCep(String cep) {
-
+        BuscaEnderecoPagina enderecoPagina = new BuscaEnderecoPagina(driver);
+        enderecoPagina.enviaEndereco(cep);
+        enderecoPagina.clicaBusca();
     }
 
     @Entao("o usuário é redirecionado para a página de resultado de busca")
