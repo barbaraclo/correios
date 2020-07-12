@@ -54,7 +54,6 @@ public class PaginaPrincipal {
     public WebDriver mudaAba(WebDriver driver){
         ArrayList<String> abas = new ArrayList<String> (driver.getWindowHandles());
         WebDriver aba = driver.switchTo().window(abas.get(1));
-        System.out.println(driver.getTitle());
 
         return aba;
     }

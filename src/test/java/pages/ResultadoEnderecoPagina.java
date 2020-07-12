@@ -20,6 +20,7 @@ public class ResultadoEnderecoPagina {
     private By tabela_linha_seletor = By.cssSelector("tr");
     private By coluna_cep_seletor = By.cssSelector("tr:last-child");
     private By cep_seletor = By.cssSelector("td:last-child");
+    private By logradouro_seletor = By.cssSelector("td:first-child");
 
 
     public ResultadoEnderecoPagina(WebDriver driver){
@@ -56,6 +57,18 @@ public class ResultadoEnderecoPagina {
     public WebElement getTabela(){
         WebElement tabela = driver.findElement(tabela_seletor);
         return tabela;
+    }
+
+    public boolean validaLogradouro (String log){
+        boolean contemString = false;
+
+        espera.until(ExpectedConditions.visibilityOfElementLocated(tabela_seletor));
+        WebElement logradouro = getTabela().findElement(logradouro_seletor);
+
+        contemString = logradouro.getText().contains(log);
+
+        return contemString;
+
     }
 
 

@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         // Run the scenarios specified by tags
-       tags = {"@teste"},
+      // tags = {"@teste"},
 
         // Define the features files location
         features = {"src/test/resources/features"},

@@ -20,12 +20,12 @@ public class BuscaEnderecoSteps {
     @Dado("que o usuário está na página principal")
     public void paginaPrincipal() {
         paginaPrincipal.acessarPagina();
-        //precisa modificar por conta do hoocks
 
     }
 
     @Dado("deseja realizar uma busca de endereço")
     public void buscaCampoEndereco() {
+        paginaPrincipal.getEndereco();
 
     }
 
@@ -50,8 +50,8 @@ public class BuscaEnderecoSteps {
     }
 
     @Entao("o sistema exibe os dados do endereço do cep {string} corretamente")
-    public void validaEndereco(String cep) {
-        Assert.assertEquals(resultadoPagina.validaCep(),cep);
+    public void validaCep(String cep) {
+        Assert.assertEquals(cep,resultadoPagina.validaCep());
 
     }
 
@@ -64,12 +64,14 @@ public class BuscaEnderecoSteps {
 
     @Quando("o usuário procura o logradouro {string}")
     public void buscaLogradouro(String logradouro) {
+        enderecoPagina.enviaEndereco(logradouro);
+        enderecoPagina.clicaBusca();
 
     }
 
     @Entao("o sistema exibe os dados do endereço do logradouro {string}")
     public void validaLogradouro(String logradouro) {
-
+        Assert.assertTrue(resultadoPagina.validaLogradouro(logradouro));
     }
 
 }
