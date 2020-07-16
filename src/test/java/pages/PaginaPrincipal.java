@@ -39,23 +39,23 @@ public class PaginaPrincipal {
 
     public String checarIdioma(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(idioma_seletor));
-        String idioma = driver.findElement(idioma_seletor).getText();
-     return idioma;
+        String idioma_atual = driver.findElement(idioma_seletor).getText();
+     return idioma_atual;
     }
 
 
     public WebElement getEndereco(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(busca_endereco_seletor));
-        WebElement endereco = driver.findElement(busca_endereco_seletor);
+        WebElement caixa_endereco = driver.findElement(busca_endereco_seletor);
 
-     return endereco;
+     return caixa_endereco;
     }
 
     public WebDriver mudaAba(WebDriver driver){
         ArrayList<String> abas = new ArrayList<String> (driver.getWindowHandles());
-        WebDriver aba = driver.switchTo().window(abas.get(1));
+        WebDriver aba_atual = driver.switchTo().window(abas.get(1)); // muda o driver para a aba nova que foi aberta
 
-        return aba;
+        return aba_atual;
     }
 
 }

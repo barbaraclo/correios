@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ResultadoEnderecoPagina {
@@ -43,31 +42,32 @@ public class ResultadoEnderecoPagina {
         return cep.getText();
     }
     public boolean validaTabelaCep(String cep){
-        boolean eIgual = false;
+        boolean cep_igual = false;
 
         List<WebElement> linhas = getTabela().findElements(tabela_linha_seletor);
         for (int i =1 ; i< linhas.size();i++){
             String cep_valor = linhas.get(i).findElement(cep_seletor).getText();
-            eIgual = cep_valor.contains(cep.substring(0,5)+"-"+cep.substring(6));
+            cep_igual = cep_valor.contains(cep.substring(0,5)+"-"+cep.substring(6)); // valida o resultado que contém no site, utilizando o '-'
         }
-        return eIgual;
+        return cep_igual;
 
     }
 
     public WebElement getTabela(){
-        WebElement tabela = driver.findElement(tabela_seletor);
-        return tabela;
+        espera.until(ExpectedConditions.visibilityOfElementLocated(tabela_seletor));
+        WebElement tabela_endereco = driver.findElement(tabela_seletor);
+        return tabela_endereco;
     }
 
     public boolean validaLogradouro (String log){
-        boolean contemString = false;
+        boolean contemLogradouro = false;
 
         espera.until(ExpectedConditions.visibilityOfElementLocated(tabela_seletor));
         WebElement logradouro = getTabela().findElement(logradouro_seletor);
 
-        contemString = logradouro.getText().contains(log);
+        contemLogradouro = logradouro.getText().contains(log);
 
-        return contemString;
+        return contemLogradouro;
 
     }
 

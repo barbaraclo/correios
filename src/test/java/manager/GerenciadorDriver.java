@@ -17,7 +17,7 @@ public class GerenciadorDriver {
             System.setProperty("webdriver.chrome.silentOutput", "true");
             Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
             driver = new ChromeDriver();
-            // driver.manage().window().maximize();
+
         }
         return driver;
     }

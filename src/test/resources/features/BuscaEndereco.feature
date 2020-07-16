@@ -1,11 +1,11 @@
 #language:pt
 
-@busca_cep
+@busca_endereco
   Funcionalidade: Buscar endereço
     Como um usuário dos correios
     Quero realizar uma busca de endereço pelo cep ou logradouro
     Para que possa encontrar as informações de CEP ou logradouro
-    @validaEndereco
+    @validaEndereco @cep
     Cenario: Realizar uma busca utilizando um CEP válido
       Dado que o usuário está na página principal
       E deseja realizar uma busca de endereço
@@ -14,7 +14,7 @@
       E visualiza a mensagem "DADOS ENCONTRADOS COM SUCESSO."
       E o sistema exibe os dados do endereço do cep "50030-230" corretamente
 
-    @teste
+    @cep
     Cenario: Realizar uma busca utilizando os 6 primeiros digitos do CEP
       Dado que o usuário está na página principal
       E deseja realizar uma busca de endereço
@@ -22,14 +22,14 @@
       Entao o usuário é redirecionado para a página de resultado de busca
       E visualiza a mensagem "DADOS ENCONTRADOS COM SUCESSO."
       E o sistema exibe uma tabela com todos os endereços que o CEP contém "508703"
-
+    @cep
     Cenario: Realizar uma busca utilizando um CEP inexistente
       Dado que o usuário está na página principal
       E deseja realizar uma busca de endereço
       Quando o usuário procura o cep "12345678911"
       Entao o usuário é redirecionado para a página de resultado de busca
       E visualiza a mensagem "DADOS NAO ENCONTRADOS"
-
+    @logradouro
     Cenario: Realizar uma busca utilizando um logradouro existente
       Dado que o usuário está na página principal
       E deseja realizar uma busca de endereço
@@ -37,7 +37,7 @@
       Entao o usuário é redirecionado para a página de resultado de busca
       E visualiza a mensagem "DADOS ENCONTRADOS COM SUCESSO."
       E o sistema exibe os dados do endereço do logradouro "Rua Capitão Domingos da Costa"
-
+    @logradouro
     Cenario: Realizar uma busca utilizando um logradouro com o número da residência
       Dado que o usuário está na página principal
       E deseja realizar uma busca de endereço

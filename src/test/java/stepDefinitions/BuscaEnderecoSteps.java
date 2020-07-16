@@ -14,8 +14,8 @@ public class BuscaEnderecoSteps {
 
     private WebDriver driver = GerenciadorDriver.getDriver();
     private PaginaPrincipal paginaPrincipal= new PaginaPrincipal(driver);
-    private ResultadoEnderecoPagina resultadoPagina = new ResultadoEnderecoPagina(driver);
-    private BuscaEnderecoPagina enderecoPagina = new BuscaEnderecoPagina(driver);
+    private ResultadoEnderecoPagina resultadoEndPagina = new ResultadoEnderecoPagina(driver);
+    private BuscaEnderecoPagina buscaEndPagina = new BuscaEnderecoPagina(driver);
 
     @Dado("que o usuário está na página principal")
     public void paginaPrincipal() {
@@ -32,46 +32,46 @@ public class BuscaEnderecoSteps {
     @Quando("o usuário procura o cep {string}")
     public void buscaCep(String cep) {
 
-        enderecoPagina.enviaEndereco(cep);
-        enderecoPagina.clicaBusca();
+        buscaEndPagina.enviaEndereco(cep);
+        buscaEndPagina.clicaBusca();
     }
 
     @Entao("o usuário é redirecionado para a página de resultado de busca")
     public void resultadoDeBusca() {
         paginaPrincipal.mudaAba(driver);
-        String retorno = resultadoPagina.getUrlResultado();
+        String retorno = resultadoEndPagina.getUrlResultado();
         Assert.assertEquals(retorno,driver.getCurrentUrl());
 
     }
 
     @Entao("visualiza a mensagem {string}")
     public void visualizaMensagem(String mensagem) {
-        Assert.assertEquals(resultadoPagina.validaMensagem(),mensagem);
+        Assert.assertEquals(resultadoEndPagina.validaMensagem(),mensagem);
     }
 
     @Entao("o sistema exibe os dados do endereço do cep {string} corretamente")
     public void validaCep(String cep) {
-        Assert.assertEquals(cep,resultadoPagina.validaCep());
+        Assert.assertEquals(cep, resultadoEndPagina.validaCep());
 
     }
 
     @Entao("o sistema exibe uma tabela com todos os endereços que o CEP contém {string}")
     public void validaTabela(String cep) {
-        System.out.println(resultadoPagina.validaTabelaCep(cep));
-        Assert.assertTrue(resultadoPagina.validaTabelaCep(cep));
+        System.out.println(resultadoEndPagina.validaTabelaCep(cep));
+        Assert.assertTrue(resultadoEndPagina.validaTabelaCep(cep));
 
     }
 
     @Quando("o usuário procura o logradouro {string}")
     public void buscaLogradouro(String logradouro) {
-        enderecoPagina.enviaEndereco(logradouro);
-        enderecoPagina.clicaBusca();
+        buscaEndPagina.enviaEndereco(logradouro);
+        buscaEndPagina.clicaBusca();
 
     }
 
     @Entao("o sistema exibe os dados do endereço do logradouro {string}")
     public void validaLogradouro(String logradouro) {
-        Assert.assertTrue(resultadoPagina.validaLogradouro(logradouro));
+        Assert.assertTrue(resultadoEndPagina.validaLogradouro(logradouro));
     }
 
 }
