@@ -20,6 +20,8 @@ public class PaginaPrincipal {
     protected WebDriverWait espera;
     private By idioma_seletor = By.cssSelector(".bt-idioma span");
     private By busca_endereco_seletor = By.cssSelector(".mais-acessados form:nth-child(2)");
+    private By busca_agencia_seletor = By.cssSelector(".show-mais-acessados:nth-child(5)");
+    private By busca_agencia_botao_seletor = By.className("bt");
 
     /*
      Page services
@@ -56,6 +58,12 @@ public class PaginaPrincipal {
         WebDriver aba_atual = driver.switchTo().window(abas.get(1)); // muda o driver para a aba nova que foi aberta
 
         return aba_atual;
+    }
+    public void getAgenciaPagina(){
+        espera.until(ExpectedConditions.visibilityOfElementLocated(busca_agencia_seletor));
+        WebElement caixa_agencia = driver.findElement(busca_agencia_seletor);
+        espera.until(ExpectedConditions.visibilityOfElementLocated(busca_agencia_botao_seletor));
+        caixa_agencia.findElement(busca_agencia_botao_seletor).click();
     }
 
 }
