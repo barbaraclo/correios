@@ -11,16 +11,19 @@ import pages.PaginaPrincipal;
 
 public class Hoocks {
 
-    private WebDriverWait espera = GerenciadorDriver.getEspera();
     private WebDriver driver = GerenciadorDriver.getDriver();
     private PaginaIdioma paginaIdioma;
 
 
     @Before
     public void antesScenario(){
+
+        driver.manage().window().maximize();
+
         paginaIdioma = new PaginaIdioma(driver);
         paginaIdioma.acessarPagina();
         paginaIdioma.setIdioma(); // iniciar sempre o site com o idioma português
+
     }
 
     @After

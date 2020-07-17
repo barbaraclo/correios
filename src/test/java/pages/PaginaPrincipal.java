@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+
 
 public class PaginaPrincipal {
 
@@ -37,17 +39,23 @@ public class PaginaPrincipal {
 
     public String checarIdioma(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(idioma_seletor));
-        String idioma = driver.findElement(idioma_seletor).getText();
-        System.out.println(idioma);
-     return idioma;
+        String idioma_atual = driver.findElement(idioma_seletor).getText();
+     return idioma_atual;
     }
 
 
     public WebElement getEndereco(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(busca_endereco_seletor));
-        WebElement endereco = driver.findElement(busca_endereco_seletor);
+        WebElement caixa_endereco = driver.findElement(busca_endereco_seletor);
 
-     return endereco;
+     return caixa_endereco;
+    }
+
+    public WebDriver mudaAba(WebDriver driver){
+        ArrayList<String> abas = new ArrayList<String> (driver.getWindowHandles());
+        WebDriver aba_atual = driver.switchTo().window(abas.get(1)); // muda o driver para a aba nova que foi aberta
+
+        return aba_atual;
     }
 
 }
