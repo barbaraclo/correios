@@ -22,13 +22,6 @@
       Entao o usuário é redirecionado para a página de resultado de busca
       E visualiza a mensagem "DADOS ENCONTRADOS COM SUCESSO."
       E o sistema exibe uma tabela com todos os endereços que o CEP contém "508703"
-    @cep
-    Cenario: Realizar uma busca utilizando um CEP inexistente
-      Dado que o usuário está na página principal
-      E deseja realizar uma busca de endereço
-      Quando o usuário procura o cep "12345678911"
-      Entao o usuário é redirecionado para a página de resultado de busca
-      E visualiza a mensagem "DADOS NAO ENCONTRADOS"
     @logradouro
     Cenario: Realizar uma busca utilizando um logradouro existente
       Dado que o usuário está na página principal
