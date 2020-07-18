@@ -22,6 +22,8 @@ public class PaginaPrincipal {
     private By busca_endereco_seletor = By.cssSelector(".mais-acessados form:nth-child(2)");
     private By busca_agencia_seletor = By.cssSelector(".show-mais-acessados:nth-child(5)");
     private By busca_agencia_botao_seletor = By.className("bt");
+    private By rastreamentoSeletor = By.cssSelector(".mais-acessados form:nth-child(1)");
+
 
     /*
      Page services
@@ -41,29 +43,30 @@ public class PaginaPrincipal {
 
     public String checarIdioma(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(idioma_seletor));
-        String idioma_atual = driver.findElement(idioma_seletor).getText();
-     return idioma_atual;
+        return driver.findElement(idioma_seletor).getText();
     }
 
 
     public WebElement getEndereco(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(busca_endereco_seletor));
-        WebElement caixa_endereco = driver.findElement(busca_endereco_seletor);
-
-     return caixa_endereco;
+      return driver.findElement(busca_endereco_seletor);
     }
 
     public WebDriver mudaAba(WebDriver driver){
         ArrayList<String> abas = new ArrayList<String> (driver.getWindowHandles());
-        WebDriver aba_atual = driver.switchTo().window(abas.get(1)); // muda o driver para a aba nova que foi aberta
-
-        return aba_atual;
+        return driver.switchTo().window(abas.get(1)); // muda o driver para a aba nova que foi aberta
     }
+
     public void getAgenciaPagina(){
         espera.until(ExpectedConditions.visibilityOfElementLocated(busca_agencia_seletor));
         WebElement caixa_agencia = driver.findElement(busca_agencia_seletor);
         espera.until(ExpectedConditions.visibilityOfElementLocated(busca_agencia_botao_seletor));
         caixa_agencia.findElement(busca_agencia_botao_seletor).click();
+    }
+
+    public WebElement getRastreamento(){
+        espera.until(ExpectedConditions.visibilityOfElementLocated(rastreamentoSeletor));
+            return driver.findElement(rastreamentoSeletor);
     }
 
 }

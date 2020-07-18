@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RastrearObjeto {
+public class RastrearObjetoDefault {
      /*
      Page representation
      */
@@ -18,12 +18,14 @@ public class RastrearObjeto {
     private By msgInfo = By.cssSelector(".info.information");
     private By msgAlert = By.cssSelector(".info.alert");
     private By campoObjetos = By.id("objetos");
+    private String url = "https://www2.correios.com.br/sistemas/rastreamento/default.cfm";
+    private By msgErro = By.cssSelector(".info.error");
 
     /*
      Page services
      */
 
-    public RastrearObjeto(WebDriver driver){
+    public RastrearObjetoDefault(WebDriver driver){
         this.driver = driver;
         this.wait = GerenciadorDriver.getEspera();
     }
@@ -47,5 +49,16 @@ public class RastrearObjeto {
         wait.until(ExpectedConditions.visibilityOf(msg));
         return msg.getText();
     }
+
+    public String obterUrl(){
+        wait.until(ExpectedConditions.urlToBe(url));
+        return url;
+    }
+
+    public String msgErro() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(msgErro));
+        return driver.findElement(msgErro).getText();
+    }
+
 
 }

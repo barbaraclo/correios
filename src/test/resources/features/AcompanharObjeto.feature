@@ -11,9 +11,8 @@ Funcionalidade: Acompanhar objeto
     Dado que o usuário está na página principal do site
     E deseja verificar o acompanhamento de um objeto
     Quando o usuário procura o CPF "06857466408"
-    E não está logado
-    Entao o usuário é redirecionado para a página de resultado de rastreamento
-    E visualiza a mensagem "Faça seu cadastro o IdCorreios"
+    Entao o usuário é redirecionado para a página de resultado de rastreamento "pré-login"
+    E é exibida a mensagem "Faça seu cadastro o IdCorreios"
     E o botão cadastre-se é visualizado
 
   @cenario02
@@ -21,16 +20,16 @@ Funcionalidade: Acompanhar objeto
     Dado que o usuário está na página principal do site
     E deseja verificar o acompanhamento de um objeto
     Quando o usuário procura o CPF "893485"
-    Entao o usuário é redirecionado para a página de resultado de rastreamento
-    E visualiza a mensagem "O(s) código(s) ou CPF/CNPJ estão inválidos"
+    Entao o usuário é redirecionado para a página de resultado de rastreamento "default"
+    E a mensagem de erro "O(s) código(s) ou CPF/CNPJ estão inválidos" é mostrada ao usuário
 
   @cenario03
   Cenario: Realizar um rastreamento de objeto utilizando um código de rastreamento válido
     Dado que o usuário está na página principal do site
     E deseja verificar o acompanhamento de um objeto
     Quando o usuário procura código "JN371586967BR"
-    Entao o usuário é redirecionado para a página de resultado de rastreamento
-    E o sistema exibe as informações de rastreamento do objeto
+    Entao o usuário é redirecionado para a página de resultado de rastreamento "resultado"
+    E o sistema exibe as informações de rastreamento do objeto "JN371586967BR"
 
   @cenario04
   Cenario: Realizar rastreamento de objetos com valor vazio
