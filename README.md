@@ -8,7 +8,7 @@ Equipe: Bárbara Lima, Brunno Rafael, Maria Eduarda e Nikollas Filgueiras
 Hoocks - Métodos que serão executados antes e depois das features. @Before é responsável por maximizar o navegador e selecionar Português como idioma. Já o @After é responsável por fechar o navegador <br>
 <br>
 BuscaAgenciaPagina - Mapeia os elementos da página de busca de agência e contém os métodos referentes a página <br>
-BuscaEnderecoPagina - Mapeia o menu de busca de na página inicial do site e contém os métodos referentes ao menu <br>
+BuscaEnderecoPagina - Mapeia o menu de busca de endereço na página inicial do site e contém os métodos referentes ao menu <br>
 MenuSuperior - Mapeia o menu superior da página inicial e contém os métodos referentes ao menu <br>
 PaginaIdioma - Mapeia o elemento de idioma na página inicial e contém os métodos referentes ao elemento <br>
 PaginaPrincipal - Mapeia os elementos da página inicial e contém os métodos referentes a página. Também contém o método mudaAba, onde é realizada a troca da URL quando o site abre uma nova aba <br>
